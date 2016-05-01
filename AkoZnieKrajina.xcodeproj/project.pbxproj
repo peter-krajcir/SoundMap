@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF9D16B71C52432000C788BF /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9D16B61C52432000C788BF /* MapPoint.swift */; };
+		DF9D16B91C526A1600C788BF /* MapPointDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9D16B81C526A1500C788BF /* MapPointDetailViewController.swift */; };
 		DFB84D591C3EBAA900C3C94E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFB84D571C3EBAA900C3C94E /* Model.xcdatamodeld */; };
-		DFB84D5B1C405D9200C3C94E /* Pin2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB84D5A1C405D9200C3C94E /* Pin2.swift */; };
+		DFEA4CDD1CC19EFC009811A8 /* DownloadedSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA4CDC1CC19EFC009811A8 /* DownloadedSoundsTableViewController.swift */; };
 		DFEEB44C1C282266008E8992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEEB44B1C282266008E8992 /* AppDelegate.swift */; };
 		DFEEB44E1C282266008E8992 /* SoundLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEEB44D1C282266008E8992 /* SoundLocationsViewController.swift */; };
 		DFEEB4511C282266008E8992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFEEB44F1C282266008E8992 /* Main.storyboard */; };
@@ -21,8 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF9D16B61C52432000C788BF /* MapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
+		DF9D16B81C526A1500C788BF /* MapPointDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPointDetailViewController.swift; sourceTree = "<group>"; };
 		DFB84D581C3EBAA900C3C94E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		DFB84D5A1C405D9200C3C94E /* Pin2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin2.swift; sourceTree = "<group>"; };
+		DFEA4CDC1CC19EFC009811A8 /* DownloadedSoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DownloadedSoundsTableViewController.swift; path = ../DownloadedSoundsTableViewController.swift; sourceTree = "<group>"; };
 		DFEEB4481C282266008E8992 /* AkoZnieKrajina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AkoZnieKrajina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFEEB44B1C282266008E8992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFEEB44D1C282266008E8992 /* SoundLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLocationsViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				DFEEB45F1C2824D9008E8992 /* Model */,
 				DFEEB44B1C282266008E8992 /* AppDelegate.swift */,
 				DFEEB44D1C282266008E8992 /* SoundLocationsViewController.swift */,
+				DF9D16B81C526A1500C788BF /* MapPointDetailViewController.swift */,
+				DFEA4CDC1CC19EFC009811A8 /* DownloadedSoundsTableViewController.swift */,
 				DFEEB44F1C282266008E8992 /* Main.storyboard */,
 				DFEEB4521C282266008E8992 /* Assets.xcassets */,
 				DFEEB45D1C28231D008E8992 /* CoreDataStackManager.swift */,
@@ -84,7 +90,7 @@
 				DFB84D571C3EBAA900C3C94E /* Model.xcdatamodeld */,
 				DFEEB4601C2824DF008E8992 /* Client */,
 				DFEEB4651C29CB42008E8992 /* Pin.swift */,
-				DFB84D5A1C405D9200C3C94E /* Pin2.swift */,
+				DF9D16B61C52432000C788BF /* MapPoint.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -170,13 +176,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF9D16B91C526A1600C788BF /* MapPointDetailViewController.swift in Sources */,
 				DFEEB4641C282678008E8992 /* DataClient-Constants.swift in Sources */,
+				DF9D16B71C52432000C788BF /* MapPoint.swift in Sources */,
 				DFEEB4621C28251E008E8992 /* DataClient.swift in Sources */,
 				DFEEB44E1C282266008E8992 /* SoundLocationsViewController.swift in Sources */,
 				DFB84D591C3EBAA900C3C94E /* Model.xcdatamodeld in Sources */,
+				DFEA4CDD1CC19EFC009811A8 /* DownloadedSoundsTableViewController.swift in Sources */,
 				DFEEB4661C29CB42008E8992 /* Pin.swift in Sources */,
 				DFEEB44C1C282266008E8992 /* AppDelegate.swift in Sources */,
-				DFB84D5B1C405D9200C3C94E /* Pin2.swift in Sources */,
 				DFEEB45E1C28231D008E8992 /* CoreDataStackManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

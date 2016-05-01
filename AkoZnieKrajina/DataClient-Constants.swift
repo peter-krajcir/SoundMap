@@ -6,6 +6,9 @@
 //  Copyright © 2015 Peter Krajcir. All rights reserved.
 //
 
+//  Extension for DataClient library
+//  It contains information for the webservice, specifically the communication API and keys in the returned json from the server
+
 import Foundation
 
 extension DataClient {
@@ -18,6 +21,8 @@ extension DataClient {
             static let Latitude = "lat"
             static let Longitude = "lon"
             static let SoundURL = "mp3"
+            static let Title = "markername"
+            static let ImageURL = "image"
         }
     }
 }

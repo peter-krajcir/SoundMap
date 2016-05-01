@@ -6,6 +6,9 @@
 //  Copyright © 2015 Peter Krajcir. All rights reserved.
 //
 
+//  Main class used in CoreData
+//  It contains all the information about the Pin and Sound
+
 import Foundation
 import CoreData
 import MapKit
@@ -20,20 +23,26 @@ class Pin: NSManagedObject, MKAnnotation {
         static let Longitude = "longitude"
         static let Address = "address"
         static let SoundURL = "soundURL"
+        static let Filename = "filename"
         static let Id = "id"
+        static let Title = "title"
+        static let ImageURL = "imageURL"
     }
     
     @NSManaged var latitude: Double
     @NSManaged var longitude: Double
     @NSManaged var address: String?
     @NSManaged var soundUrl: String
-    @NSManaged var id: Int
+    @NSManaged var filename: String?
+    @NSManaged var id: Int64
+    @NSManaged var title: String?
+    @NSManaged var imageUrl: String?
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(dictionary: [String : AnyObject?], context: NSManagedObjectContext) {
+    init(mapPoint: MapPoint, context: NSManagedObjectContext) {
         
         // Core Data
         let entity =  NSEntityDescription.entityForName(Keys.EntityName, inManagedObjectContext: context)!
@@ -41,12 +50,18 @@ class Pin: NSManagedObject, MKAnnotation {
 
         // Dictionary
         
-        soundUrl = dictionary[Keys.SoundURL] as! String
-        id = (dictionary[Keys.Id] as! NSString).integerValue
-        latitude = (dictionary[Keys.Latitude] as! NSString).doubleValue
-        longitude = (dictionary[Keys.Longitude] as! NSString).doubleValue
-        address = dictionary[Keys.Address] as? String
+        soundUrl = mapPoint.soundUrl
+        filename = mapPoint.filename
+        id = mapPoint.id
+        latitude = mapPoint.latitude
+        longitude = mapPoint.longitude
+        address = mapPoint.address
+        title = mapPoint.title
+        imageUrl = mapPoint.imageUrl
     }
+    
+//  Convenient function - getter
+//  Generates the Pin's coordinates from information in the object
     
     var coordinate: CLLocationCoordinate2D {
         get {
@@ -54,9 +69,11 @@ class Pin: NSManagedObject, MKAnnotation {
         }
     }
     
-    var soundPath: String? {
+//  Reference for MapPoint class that is used in the Player screen
+    
+    var mapPoint: MapPoint? {
         get {
-            return soundUrl.stringByReplacingOccurrencesOfString("/", withString: "_").stringByReplacingOccurrencesOfString(":", withString: "_")
+            return MapPoint(pin: self)
         }
     }
 }
