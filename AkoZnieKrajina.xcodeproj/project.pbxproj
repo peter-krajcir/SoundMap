@@ -11,7 +11,6 @@
 		DF9D16B91C526A1600C788BF /* MapPointDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9D16B81C526A1500C788BF /* MapPointDetailViewController.swift */; };
 		DFB84D591C3EBAA900C3C94E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFB84D571C3EBAA900C3C94E /* Model.xcdatamodeld */; };
 		DFEA4CDD1CC19EFC009811A8 /* DownloadedSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA4CDC1CC19EFC009811A8 /* DownloadedSoundsTableViewController.swift */; };
-		DFEA4CDF1CD6AE88009811A8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = DFEA4CDE1CD6AE88009811A8 /* README.md */; };
 		DFEEB44C1C282266008E8992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEEB44B1C282266008E8992 /* AppDelegate.swift */; };
 		DFEEB44E1C282266008E8992 /* SoundLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEEB44D1C282266008E8992 /* SoundLocationsViewController.swift */; };
 		DFEEB4511C282266008E8992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFEEB44F1C282266008E8992 /* Main.storyboard */; };
@@ -28,7 +27,7 @@
 		DF9D16B81C526A1500C788BF /* MapPointDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPointDetailViewController.swift; sourceTree = "<group>"; };
 		DFB84D581C3EBAA900C3C94E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DFEA4CDC1CC19EFC009811A8 /* DownloadedSoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DownloadedSoundsTableViewController.swift; path = ../DownloadedSoundsTableViewController.swift; sourceTree = "<group>"; };
-		DFEA4CDE1CD6AE88009811A8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DFEA4CDE1CD6AE88009811A8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = AkoZnieKrajina/README.md; sourceTree = "<group>"; };
 		DFEEB4481C282266008E8992 /* AkoZnieKrajina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AkoZnieKrajina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFEEB44B1C282266008E8992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFEEB44D1C282266008E8992 /* SoundLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLocationsViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		DFEEB43F1C282266008E8992 = {
 			isa = PBXGroup;
 			children = (
+				DFEA4CDE1CD6AE88009811A8 /* README.md */,
 				DFEEB44A1C282266008E8992 /* AkoZnieKrajina */,
 				DFEEB4491C282266008E8992 /* Products */,
 			);
@@ -82,7 +82,6 @@
 				DFEEB45D1C28231D008E8992 /* CoreDataStackManager.swift */,
 				DFEEB4541C282266008E8992 /* LaunchScreen.storyboard */,
 				DFEEB4571C282266008E8992 /* Info.plist */,
-				DFEA4CDE1CD6AE88009811A8 /* README.md */,
 			);
 			path = AkoZnieKrajina;
 			sourceTree = "<group>";
@@ -188,7 +187,6 @@
 				DFEA4CDD1CC19EFC009811A8 /* DownloadedSoundsTableViewController.swift in Sources */,
 				DFEEB4661C29CB42008E8992 /* Pin.swift in Sources */,
 				DFEEB44C1C282266008E8992 /* AppDelegate.swift in Sources */,
-				DFEA4CDF1CD6AE88009811A8 /* README.md in Sources */,
 				DFEEB45E1C28231D008E8992 /* CoreDataStackManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

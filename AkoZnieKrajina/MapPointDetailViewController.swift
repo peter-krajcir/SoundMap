@@ -44,6 +44,7 @@ class MapPointDetailViewController: UIViewController, NSFetchedResultsController
 
 // We use Apple's AVFoundation framework, specifically AVPlayer for streaming/playing locally stored mp3 file
     var avPlayer: AVPlayer!
+    var avPlayerItem: AVPlayerItem!
     
 // We use time observer to update current time of playing sound
 // It's recommended way to track this information (in opposite of using the local timer)
@@ -158,24 +159,31 @@ class MapPointDetailViewController: UIViewController, NSFetchedResultsController
 
             if let soundUrl = targetUrl {
 
-                avPlayer = AVPlayer(URL: soundUrl)
-            
+                avPlayerItem = AVPlayerItem(URL: soundUrl)
+                
+                avPlayer = AVPlayer(playerItem: avPlayerItem)
+                
                 avPlayer.volume = 1.0
                 avPlayer.rate = 1.0
                 avPlayer.play()
-
+                
                 let duration = avPlayer.currentItem?.asset.duration
 // The item's duration is in CMTime and we need it in seconds
                 let durationInSeconds = CMTimeGetSeconds(duration!)
                 print("Duration is \(durationInSeconds)")
-
-                let interval = CMTimeMakeWithSeconds(1.0, 1)
-// Time observer of AVPlayer, used for constant updates of GUI about the elapsed time of the sound
-// The function outputCurrentTime is called every second (as set in the variable interval)
-                timeObserver = avPlayer.addPeriodicTimeObserverForInterval(interval, queue: dispatch_get_main_queue(), usingBlock: outputCurrentTime)
-                currentTimeSlider.maximumValue = Float(durationInSeconds)
+                
+                if (durationInSeconds == 0.0) {
+                    let alert = UIAlertController(title: "Could not stream. Internet appears to be down.", message: nil, preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else {
+                    let interval = CMTimeMakeWithSeconds(1.0, 1)
+                    // Time observer of AVPlayer, used for constant updates of GUI about the elapsed time of the sound
+                    // The function outputCurrentTime is called every second (as set in the variable interval)
+                    timeObserver = avPlayer.addPeriodicTimeObserverForInterval(interval, queue: dispatch_get_main_queue(), usingBlock: outputCurrentTime)
+                    currentTimeSlider.maximumValue = Float(durationInSeconds)
+                }
             }
-            
         }
     }
     
@@ -282,13 +290,18 @@ class MapPointDetailViewController: UIViewController, NSFetchedResultsController
                 let session = NSURLSession.sharedSession()
                 let task = session.dataTaskWithRequest(request) { data, response, error in
                     if error != nil {
-                        print("There was an error with downloading the image file")
+                        print("There was an error with downloading the image file.")
                         print(error)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            let alert = UIAlertController(title: "There was an error with downloading the image file. \(error!.localizedDescription)", message: nil, preferredStyle: .Alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        })
+                    } else {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.imageView.image = UIImage(data: data!)
+                        })
                     }
-                    
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.imageView.image = UIImage(data: data!)
-                    })
                 }
                 task.resume()
             }

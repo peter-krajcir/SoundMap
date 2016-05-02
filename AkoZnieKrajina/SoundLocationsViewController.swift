@@ -25,6 +25,11 @@ class SoundLocationsViewController: UIViewController, MKMapViewDelegate {
             
             if let errorString = errorString {
                 print(errorString)
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertController(title: errorString, message: nil, preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
             } else {
 // Loop through the results returned from the server and display them in the map
                 if let mapPoints = JSONResult as [[String: AnyObject]]? {

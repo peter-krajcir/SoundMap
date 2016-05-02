@@ -16,7 +16,7 @@ class DataClient: NSObject {
     var session: NSURLSession
     
     // MARK: Init
-    override init() {
+    private override init() {
         session = NSURLSession.sharedSession()
         super.init()
     }
@@ -28,7 +28,7 @@ class DataClient: NSObject {
         
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             guard (error == nil) else {
-                callback(JSONResult: nil, errorString: "There was an error with your request: \(error)")
+                callback(JSONResult: nil, errorString: "Could not download the pins. \(error!.localizedDescription)")
                 return
             }
             
@@ -77,7 +77,7 @@ class DataClient: NSObject {
             
             let task = session.dataTaskWithRequest(request) { (data, response, error) in
                 guard (error == nil) else {
-                    callback(targetFilename: nil, errorString: "There was an error with your request: \(error)")
+                    callback(targetFilename: nil, errorString: "There was an error with your request: \(error!.localizedDescription)")
                     return
                 }
                 
